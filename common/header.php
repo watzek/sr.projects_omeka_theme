@@ -96,46 +96,24 @@ fire_plugin_hook('public_header');
 		 <ul class="title-area">
 		    <!-- Title Area -->
 		    <li class="name">
-		       <h1 id="site-title"><a href="#"><?php
-echo link_to_home_page(theme_logo());
-?></a></h1>
+		       <h1 id="site-title"><a href="#"><?php echo link_to_home_page(theme_logo()); ?></a></h1>
 		    </li>
 		    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 		    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 		  </ul>
 	
 				<section class="top-bar-section">
-								        <!-- Left Nav Section -->
-									<ul class="left">
-					      
-				        <?php
-echo public_nav_main();
-?>
-		
-
-						
-										</ul>
-				     
-
-			<ul class="right">
-				<li class="divider hide-for-small"></li>
-				<li><?php
-echo link_to_item_search('More Search Options');
-?></li>
-				
-		  <li><?php
-echo search_form(array(
-    'show_advanced' => false
-));
-?></li>
-		
-</ul>
- </section>
+					<!-- Left Nav Section -->
+					<ul class="left"><!-- 
+					    <?php echo public_nav_main();?> -->
+					    <li><a href="/items/browse">Browse Items</a></li>
+					    <li><a href="/collections/browse">Browse Collections</a></li>
+					    <li><?php echo link_to_item_search('More Search Options'); ?></li>
+					    <li><?php echo search_form(array('show_advanced' => false));?></li>
+					</ul>	
+ 				</section>
 		    </nav>
-
-
-
-		  </div>
+	</div>
 
 	<div class="row">
 		
