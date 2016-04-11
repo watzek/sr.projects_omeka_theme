@@ -116,12 +116,7 @@ fire_plugin_hook('public_header');
 	</div>
 
 	<div class="row">
-		
 		<div class="large-12 columns">
-	
-	      <h1 id="site-title"><?php
-echo link_to_home_page(theme_logo());
-?></h1>
 
 
 
