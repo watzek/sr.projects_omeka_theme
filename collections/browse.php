@@ -6,8 +6,8 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 <?php echo pagination_links(); ?>
 
 <?php
-$sortLinks[__('Title')] = 'Dublin Core,Title';
-$sortLinks[__('Date Added')] = 'added';
+    $sortLinks[__('Title')] = 'Dublin Core,Title';
+    $sortLinks[__('Date Added')] = 'added';
 ?>
 <div id="sort-links">
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
