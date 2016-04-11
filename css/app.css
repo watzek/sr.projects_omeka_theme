@@ -48,7 +48,7 @@ h1#site-title a{
 
 #primary-nav a:hover {
 	color: #E46C38;
-	background-color: #FFF;
+	background-color: #113300;
 }
 
 /* default foundation list style is outside */
@@ -223,6 +223,13 @@ Footer
 	color: white;
 }
 
+#footer a{
+	color: white;
+}
+
+#footer a:hover{
+	color: #E46C38;
+}
 
 ul.link-list {
 	display: inline-block;
