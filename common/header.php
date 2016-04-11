@@ -13,7 +13,7 @@ if ($description = option('description')):
   <?php
 endif;
 ?>
-  
+  <link rel="shortcut icon" href="<?php echo src('library_favicon.ico', 'images'); ?>">
   <title><?php
 echo option('site_title');
 echo isset($title) ? ' | ' . strip_formatting($title) : '';
