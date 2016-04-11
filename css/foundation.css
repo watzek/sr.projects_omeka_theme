@@ -1111,7 +1111,7 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: 'sorts-mill-goudy-n5', 'sorts-mill-goudy', 'Goudy Old Style', Goudy, serif;
   font-weight: bold;
   font-style: normal;
   color: #222222;
