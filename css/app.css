@@ -258,8 +258,8 @@ div#container, div.container { position: relative; width: auto; margin: 0 auto; 
 	width: 185px;
 	padding-left: 0px;
 	padding-right: 0px;
-	border: 2px solid black;
-	background-color: gray;
+	/* border: 2px solid black; */
+	background-color: #14273C;
 	height: 330px;
 }
 
@@ -277,12 +277,12 @@ div#container, div.container { position: relative; width: auto; margin: 0 auto; 
 }
 
 .collection-col a{
-	color: black;
+	color: #6F9DCF;
 	text-decoration: underline;
 }
 
 .collection-col a:hover{
-	color: #fff;
+	color: #03A19B;
 	text-decoration: underline;
 }
 
