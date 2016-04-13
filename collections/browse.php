@@ -2,18 +2,14 @@
 echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 ?>
 
-<h1><?php echo $pageTitle; ?> <?php echo __('(%s total)', $total_results); ?></h1>
+<!-- <h1><?php echo $pageTitle; ?> <?php echo __('(%s total)', $total_results); ?></h1> -->
 <?php echo pagination_links(); ?>
-<br />
 
 <br />
 <?php
     $sortLinks[__('Title')] = 'Dublin Core,Title';
     $sortLinks[__('Date Added')] = 'added';
 ?>
-<div id="sort-links">
-    <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
-</div>
 
 <?php
 	$items_per_page = get_option('per_page_public');
@@ -34,7 +30,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 		<?php } //all the data of goes here:?>
 
 			    <?php if ($collectionImage = record_image('collection', 'square_thumbnail')): ?>
-        			<?php echo link_to_collection($collectionImage, array('class' => 'image')); ?>
+			    	<?php echo link_to_items_browse($collectionImage, array('collection' => metadata('collection', 'id'))); ?>
    				<?php endif; ?>
    				<!-- <h3><?php echo metadata('collection', array('Dublin Core', 'Title')); ?></h3> -->
    				<h3><?php echo link_to_items_browse(__(metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id'))); ?></h3>
@@ -56,6 +52,9 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 </div><!-- end class="container" -->
 <br />
 
+<div id="sort-links">
+    <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
+</div>
 <?php echo pagination_links(); ?>
 
 <?php fire_plugin_hook('public_collections_browse', array('collections'=>$collections, 'view' => $this)); ?>
