@@ -243,3 +243,40 @@ ul.link-list a, #footer h4 {
 ul.link-list a:hover {
 	color: #f8f8f8;
 }
+
+CSS Code
+
+/* --------------------------------------------------
+Container
+-------------------------------------------------- */
+div#container, div.container { position: relative; width: auto; margin: 0 auto; padding: 0; }
+
+.collection-col {
+	float: left; 
+	display: inline; 
+	margin: 0 0 0 40px; 
+	width: 185px;
+}
+
+.collection-col:nth-child(even){
+	margin-top: 40px;
+}
+
+.one { width: 200px; }
+.two { width: 440px; }
+.three { width: 680px; }
+.four { width: 920px; }
+ 
+.offset-by-one-half { margin-left: 120px; }
+.offset-by-one { margin-left: 240px; }
+.offset-by-two { margin-left: 480px; }
+ 
+/* Clear the columns automagically, thanks @kneath */
+.column-row:after, .row:after, .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+* html .column-row, * html .row, * html .clearfix { height: 1%; }
+.column-row, .row, .clearfix { display: inline-block; }
+.column-row, .row, .clearfix { display: block; }
+ 
+/* IE6 Problems ---------- */
+body.ie .column-row { width: 960px; }
+body.ie .two-thirds .column-row { width: 1960px; }
