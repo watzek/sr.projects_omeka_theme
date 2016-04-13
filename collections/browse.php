@@ -31,7 +31,6 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 	<?php
 	$col_counter = 1;
 	$total_counter = 1;
-	//echo "Total collections = ".count('collections');
 	foreach (loop('collections') as $collection):
 
 		//check if $col_counter = 4 or $total_counter = 10 to add "end" class
@@ -52,6 +51,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 			  $total_counter++;
 		?>
 	<?php endforeach; ?>
+	
 	</div><!-- end class="row" -->
 </div><!-- end class="container" -->
 <br />
