@@ -6,13 +6,6 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 <?php echo pagination_links(); ?>
 <br />
 
-<style>
-	.collection-col{
-		background-color: gray;
-		height: 300px;
-	}
-</style>
-
 <br />
 <?php
     $sortLinks[__('Title')] = 'Dublin Core,Title';
@@ -39,7 +32,14 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 		<?php }else{ ?>
 			<div class="small-3 columns collection-col">
 		<?php } //all the data of goes here:?>
-			...</div><!-- end class="small-3" -->
+
+			    <?php if ($collectionImage = record_image('collection', 'square_thumbnail')): ?>
+        			<?php echo link_to_collection($collectionImage, array('class' => 'image')); ?>
+   				<?php endif; ?>
+   				<!-- <h3><?php echo metadata('collection', array('Dublin Core', 'Title')); ?></h3> -->
+   				<h3><?php echo link_to_items_browse(__(metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id'))); ?></h3>
+
+			</div><!-- end class="small-3" -->
 
 		<?php
 			  if($col_counter == 4){
