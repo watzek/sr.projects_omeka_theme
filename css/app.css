@@ -267,7 +267,7 @@ div#container, div.container { position: relative; width: auto; margin: 0 auto; 
 	border-bottom: 2px solid black;
 }
 
-.collection-col h3{
+.collection-col h3, h5{
 	padding: 0 3px 0 3px;
 	text-align: center;
 }

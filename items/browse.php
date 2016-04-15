@@ -24,6 +24,63 @@ $sortLinks[__('Date Added')] = 'added';
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
 </div>
 
+<style>
+    .item-box{
+        padding: 0 0 0 0;
+        margin: 0 0 20px 10px;
+        width: 300px;
+    }
+    .item-box:nth-child(odd){ background:gray; }
+    .item-box:nth-child(even){ background:darkgray; }
+    .item-box img{
+        width: 100%;
+        height: 250px;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+    .item-box hr{
+        margin-top: 10px;
+        margin-bottom: 10px
+    }
+    .item-title{
+        color: #fff;
+    }
+    .item-mdata{
+        color: #fff;
+        padding: 3px 3px 5px 10px;
+        margin: 0 0 0 0;
+    }
+</style>
+
+<div class="container">
+    <div class="row items-browse">
+        <div class="small-4 columns item-box">
+            <img src="../images/preview.png"/>
+            <h3 class="item-title text-center">Title</h3>
+            <hr />
+            <p class="item-mdata"><strong>Author: </strong> Hibdy Dibdy</p>
+            <p class="item-mdata"><strong>Department: </strong> White House</p>
+            <p class="item-mdata"><strong>Year: </strong>2020</p>
+        </div>
+        <div class="small-4 columns item-box">
+            <img src="../images/preview.png"/>
+            <h4 class="item-title text-center">"I'd rather cry in a BMW than laugh on the backseat of a bicycle": How Only Children Confront Issues of Re-traditionalization While Maintaining their Individuality</h4>
+            <hr />
+            <p class="item-mdata"><strong>Author: </strong> Hibdy Dibdy, Gibdy Dibdy, Zibdy Dibdy, Fibdy Dibdy, Kibdy Dibdy</p>
+            <p class="item-mdata"><strong>Department: </strong> White House</p>
+            <p class="item-mdata"><strong>Year: </strong>2020</p>
+        </div>
+        <div class="small-4 columns item-box end">
+            <img src="../images/preview.png"/>
+            <h3 class="item-title text-center">Title</h3>
+            <hr />
+            <p class="item-mdata"><strong>Author: </strong> Hibdy Dibdy</p>
+            <p class="item-mdata"><strong>Department: </strong> White House</p>
+            <p class="item-mdata"><strong>Year: </strong>2020</p>
+        </div>
+    </div>
+</div>
+
 <?php endif; ?>
 
 <?php foreach (loop('items') as $item): ?>

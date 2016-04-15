@@ -106,8 +106,8 @@ fire_plugin_hook('public_header');
 					<!-- Left Nav Section -->
 					<ul class="left">
 					    <!-- <?php echo public_nav_main();?> -->
-					    <li><a href="/items/browse">Browse Items</a></li>
-					    <li><a href="/collections/browse">Browse Collections</a></li>
+					    <li><a href="/items/browse">Items</a></li>
+					    <li><a href="/collections/browse">Collections</a></li>
 					    <li><?php echo link_to_item_search('More Search Options'); ?></li>
 					    <li><?php echo search_form(array('show_advanced' => false));?></li>
 					</ul>	
