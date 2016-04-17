@@ -50,9 +50,60 @@ $sortLinks[__('Date Added')] = 'added';
         padding: 3px 3px 5px 10px;
         margin: 0 0 0 0;
     }
+    .custom-box{
+    	width: 300px;
+    	border: 2px solid black;
+        margin: 0 10px 20px 00px;
+      	background-color: gray;
+        float: left;
+    }
+    .custom-box p, h3{
+        padding: 3px 3px 5px 10px;
+    }
+    .custom-box img{
+        width: 100%;
+        height: 250px;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
 </style>
 
 <div class="container">
+	<div class="custom-box">
+		<img src="http://i.stack.imgur.com/W08Uq.png"/>
+		<h3>Title</h3>
+        <hr />
+        <p><strong>Author: </strong> Hibdy Dibdy</p>
+        <p><strong>Department: </strong> White House</p>
+        <p><strong>Year: </strong>2020</p>
+	</div>
+	<div class="custom-box">
+		<img src="http://i.stack.imgur.com/W08Uq.png"/>
+		<h3>"I'd rather cry in a BMW than laugh on the backseat of a bicycle": How Only Children Confront Issues of Re-traditionalization While Maintaining their Individuality</h3>
+        <hr />
+        <p><strong>Author: </strong> Hibdy Dibdy, Gibdy Dibdy, Zibdy Dibdy, Fibdy Dibdy, Kibdy Dibdy</p>
+        <p><strong>Department: </strong> White House</p>
+        <p><strong>Year: </strong>2020</p>
+	</div>
+	<div class="custom-box">
+		<img src="http://i.stack.imgur.com/W08Uq.png"/>
+		<h3>Title</h3>
+        <hr />
+        <p><strong>Author: </strong> Hibdy Dibdy</p>
+        <p><strong>Department: </strong> White House</p>
+        <p><strong>Year: </strong>2020</p>
+	</div>
+	<div class="custom-box">
+		<img src="http://i.stack.imgur.com/W08Uq.png"/>
+		<h3>Title</h3>
+        <hr />
+        <p><strong>Author: </strong> Hibdy Dibdy</p>
+        <p><strong>Department: </strong> White House</p>
+        <p><strong>Year: </strong>2020</p>
+	</div>
+</div>
+
+<!-- <div class="container">
     <div class="row items-browse">
         <div class="small-4 columns item-box">
             <img src="../images/preview.png"/>
@@ -79,7 +130,7 @@ $sortLinks[__('Date Added')] = 'added';
             <p class="item-mdata"><strong>Year: </strong>2020</p>
         </div>
     </div>
-</div>
+</div> -->
 
 <?php endif; ?>
 
