@@ -23,116 +23,68 @@ $sortLinks[__('Date Added')] = 'added';
 <div id="sort-links">
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
 </div>
+<?php endif; ?>
 
 <style>
-    .item-box{
-        padding: 0 0 0 0;
-        margin: 0 0 20px 10px;
-        width: 300px;
-    }
-    .item-box:nth-child(odd){ background:gray; }
-    .item-box:nth-child(even){ background:darkgray; }
-    .item-box img{
-        width: 100%;
-        height: 250px;
-        margin: 0 0 0 0;
-        padding: 0 0 0 0;
-    }
-    .item-box hr{
-        margin-top: 10px;
-        margin-bottom: 10px
-    }
-    .item-title{
-        color: #fff;
-    }
-    .item-mdata{
-        color: #fff;
-        padding: 3px 3px 5px 10px;
-        margin: 0 0 0 0;
-    }
-    .custom-box{
-    	width: 300px;
-    	border: 2px solid black;
-        margin: 0 10px 20px 00px;
-      	background-color: gray;
-        float: left;
-    }
-    .custom-box p, h3{
-        padding: 3px 3px 5px 10px;
-    }
-    .custom-box img{
-        width: 100%;
-        height: 250px;
-        margin: 0 0 0 0;
-        padding: 0 0 0 0;
-    }
+	.item-list{
+		margin-bottom: 20px;
+	}
+	.item-list img{
+		margin-bottom: 20px;
+	}
 </style>
 
-<div class="container">
-	<div class="custom-box">
-		<img src="http://i.stack.imgur.com/W08Uq.png"/>
-		<h3>Title</h3>
-        <hr />
-        <p><strong>Author: </strong> Hibdy Dibdy</p>
-        <p><strong>Department: </strong> White House</p>
-        <p><strong>Year: </strong>2020</p>
+<div class="row item-row">
+	<div class="item-list">
+		<img src="http://sharonkgilbert.com/wp-content/uploads/2015/12/Under-construction.png" class="large-4 columns">
+		<div class="large-8 columns">
+			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
+			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
+			<p><strong>Year Published: </strong>1990</p>
+			<p><strong>Department: </strong>The White House</p>
+		</div>
 	</div>
-	<div class="custom-box">
-		<img src="http://i.stack.imgur.com/W08Uq.png"/>
-		<h3>"I'd rather cry in a BMW than laugh on the backseat of a bicycle": How Only Children Confront Issues of Re-traditionalization While Maintaining their Individuality</h3>
-        <hr />
-        <p><strong>Author: </strong> Hibdy Dibdy, Gibdy Dibdy, Zibdy Dibdy, Fibdy Dibdy, Kibdy Dibdy</p>
-        <p><strong>Department: </strong> White House</p>
-        <p><strong>Year: </strong>2020</p>
+	<div class="item-list">
+		<hr />
+		<img src="https://cdn1.iconfinder.com/data/icons/professional-toolbar-icons-2/64/Under_construction.png" class="large-4 columns">
+		<div class="large-8 columns">
+			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
+			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
+			<p><strong>Year Published: </strong>1990</p>
+			<p><strong>Department: </strong>The White House</p>
+		</div>
 	</div>
-	<div class="custom-box">
-		<img src="http://i.stack.imgur.com/W08Uq.png"/>
-		<h3>Title</h3>
-        <hr />
-        <p><strong>Author: </strong> Hibdy Dibdy</p>
-        <p><strong>Department: </strong> White House</p>
-        <p><strong>Year: </strong>2020</p>
+	<div class="item-list">
+		<hr/>
+		<img src="http://sharonkgilbert.com/wp-content/uploads/2015/12/Under-construction.png" class="large-4 columns">
+		<div class="large-8 columns">
+			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
+			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
+			<p><strong>Year Published: </strong>1990</p>
+			<p><strong>Department: </strong>The White House</p>
+		</div>
 	</div>
-	<div class="custom-box">
-		<img src="http://i.stack.imgur.com/W08Uq.png"/>
-		<h3>Title</h3>
-        <hr />
-        <p><strong>Author: </strong> Hibdy Dibdy</p>
-        <p><strong>Department: </strong> White House</p>
-        <p><strong>Year: </strong>2020</p>
+	<div class="item-list">
+		<hr />
+		<img src="http://sharonkgilbert.com/wp-content/uploads/2015/12/Under-construction.png" class="large-4 columns">
+		<div class="large-8 columns">
+			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
+			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
+			<p><strong>Year Published: </strong>1990</p>
+			<p><strong>Department: </strong>The White House</p>
+		</div>
 	</div>
+	<div class="item-list">
+		<hr />
+		<img src="https://cdn1.iconfinder.com/data/icons/professional-toolbar-icons-2/64/Under_construction.png" class="large-4 columns">
+		<div class="large-8 columns">
+			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
+			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
+			<p><strong>Year Published: </strong>1990</p>
+			<p><strong>Department: </strong>The White House</p>
+		</div>
+	</div>	
 </div>
-
-<!-- <div class="container">
-    <div class="row items-browse">
-        <div class="small-4 columns item-box">
-            <img src="../images/preview.png"/>
-            <h3 class="item-title text-center">Title</h3>
-            <hr />
-            <p class="item-mdata"><strong>Author: </strong> Hibdy Dibdy</p>
-            <p class="item-mdata"><strong>Department: </strong> White House</p>
-            <p class="item-mdata"><strong>Year: </strong>2020</p>
-        </div>
-        <div class="small-4 columns item-box">
-            <img src="../images/preview.png"/>
-            <h4 class="item-title text-center">"I'd rather cry in a BMW than laugh on the backseat of a bicycle": How Only Children Confront Issues of Re-traditionalization While Maintaining their Individuality</h4>
-            <hr />
-            <p class="item-mdata"><strong>Author: </strong> Hibdy Dibdy, Gibdy Dibdy, Zibdy Dibdy, Fibdy Dibdy, Kibdy Dibdy</p>
-            <p class="item-mdata"><strong>Department: </strong> White House</p>
-            <p class="item-mdata"><strong>Year: </strong>2020</p>
-        </div>
-        <div class="small-4 columns item-box end">
-            <img src="../images/preview.png"/>
-            <h3 class="item-title text-center">Title</h3>
-            <hr />
-            <p class="item-mdata"><strong>Author: </strong> Hibdy Dibdy</p>
-            <p class="item-mdata"><strong>Department: </strong> White House</p>
-            <p class="item-mdata"><strong>Year: </strong>2020</p>
-        </div>
-    </div>
-</div> -->
-
-<?php endif; ?>
 
 <?php foreach (loop('items') as $item): ?>
 <div class="item hentry">
