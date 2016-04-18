@@ -50,13 +50,13 @@ $sortLinks[__('Date Added')] = 'added';
     			<p><strong>Year Published: </strong><?php echo metadata('item', array('Dublin Core', 'Date')); ?></p>
     			<p><strong>Department: </strong><?php 
     				if(metadata('item','Collection Name')):
-    					echo link_to_collection_for_item();
+    					echo link_to_items_browse(metadata('item','Collection Name'), array('collection' => metadata('item', 'Collection ID')));
     				endif;
     			?></p>
     		</div>
     	<?php endif; ?>
 		<?php echo '</div>'; ?>
-	<?php endforeach; ?>
+	<?php endforeach;?>
 </div>
 
 <?php /* foreach (loop('items') as $item): ?>
