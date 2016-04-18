@@ -32,61 +32,34 @@ $sortLinks[__('Date Added')] = 'added';
 	.item-list img{
 		margin-bottom: 20px;
 	}
+	.item-list p{
+		margin-bottom: 10px;
+	}
 </style>
 
 <div class="row item-row">
-	<div class="item-list">
-		<img src="http://sharonkgilbert.com/wp-content/uploads/2015/12/Under-construction.png" class="large-4 columns">
-		<div class="large-8 columns">
-			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
-			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
-			<p><strong>Year Published: </strong>1990</p>
-			<p><strong>Department: </strong>The White House</p>
-		</div>
-	</div>
-	<div class="item-list">
-		<hr />
-		<img src="https://cdn1.iconfinder.com/data/icons/professional-toolbar-icons-2/64/Under_construction.png" class="large-4 columns">
-		<div class="large-8 columns">
-			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
-			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
-			<p><strong>Year Published: </strong>1990</p>
-			<p><strong>Department: </strong>The White House</p>
-		</div>
-	</div>
-	<div class="item-list">
-		<hr/>
-		<img src="http://sharonkgilbert.com/wp-content/uploads/2015/12/Under-construction.png" class="large-4 columns">
-		<div class="large-8 columns">
-			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
-			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
-			<p><strong>Year Published: </strong>1990</p>
-			<p><strong>Department: </strong>The White House</p>
-		</div>
-	</div>
-	<div class="item-list">
-		<hr />
-		<img src="http://sharonkgilbert.com/wp-content/uploads/2015/12/Under-construction.png" class="large-4 columns">
-		<div class="large-8 columns">
-			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
-			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
-			<p><strong>Year Published: </strong>1990</p>
-			<p><strong>Department: </strong>The White House</p>
-		</div>
-	</div>
-	<div class="item-list">
-		<hr />
-		<img src="https://cdn1.iconfinder.com/data/icons/professional-toolbar-icons-2/64/Under_construction.png" class="large-4 columns">
-		<div class="large-8 columns">
-			<h4>"He Always Advocated for Justice and Truth": The Mothers of Political Prisoners' Use of Combative Motherhood to Legitimize Human Rights in Kenyan Politics.</h4>
-			<p><strong>Author: </strong>Hibdy Dibdy, Gibdy Dibdy, Jibdy, Dibdy</p>
-			<p><strong>Year Published: </strong>1990</p>
-			<p><strong>Department: </strong>The White House</p>
-		</div>
-	</div>	
+	<?php foreach (loop('items') as $item): ?>
+		<?php echo '<div class="item-list"> <hr />'; ?>
+		<?php if (metadata('item', 'has files')): ?>
+    		<div class="large-4 columns">
+        		<?php echo link_to_item(item_image('square_thumbnail')); ?>
+    		</div>
+    		<div class="large-8 columns">
+    			<h4><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h4>
+    			<p><strong>Author: </strong><?php echo metadata('item', array('Dublin Core', 'Creator')); ?> </p>
+    			<p><strong>Year Published: </strong><?php echo metadata('item', array('Dublin Core', 'Date')); ?></p>
+    			<p><strong>Department: </strong><?php 
+    				if(metadata('item','Collection Name')):
+    					echo link_to_collection_for_item();
+    				endif;
+    			?></p>
+    		</div>
+    	<?php endif; ?>
+		<?php echo '</div>'; ?>
+	<?php endforeach; ?>
 </div>
 
-<?php foreach (loop('items') as $item): ?>
+<?php /* foreach (loop('items') as $item): ?>
 <div class="item hentry">
     <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
     <div class="item-meta">
@@ -112,7 +85,7 @@ $sortLinks[__('Date Added')] = 'added';
 
     </div><!-- end class="item-meta" -->
 </div><!-- end class="item hentry" -->
-<?php endforeach; ?>
+<?php endforeach; */ ?>
 
 <?php echo pagination_links(); ?>
 
