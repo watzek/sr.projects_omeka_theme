@@ -69,7 +69,7 @@ queue_js_file('foundation/foundation.forms');
     <?php queue_js_file('jquery.opacityrollover'); ?>
     <?php queue_js_file('jush'); ?>
   	<?php echo head_js(); ?>
-
+	<?php queue_js_file('masonry.pkgd') ?>
 
 </head>
 
