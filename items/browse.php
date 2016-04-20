@@ -35,17 +35,75 @@ $sortLinks[__('Date Added')] = 'added';
 	.item-list p{
 		margin-bottom: 10px;
 	}
+
+	
+	* { box-sizing: border-box; }
+
+	/* ---- grid ---- */
+
+	.grid {
+	  max-width: 1000px;
+	}
+
+	/* clearfix */
+	.grid:after {
+	  content: '';
+	  display: block;
+	  clear: both;
+	}
+
+	/* ---- grid-item ---- */
+
+	.grid-item {
+	  width: 300px;
+	  /*height: 600px;*/
+	  float: left;
+	  background: #7DA3A1;
+	  border: 2px solid #333;
+	  border-color: hsla(0, 0%, 0%, 0.5);
+	  border-radius: 5px;
+	  margin-bottom: 20px;
+	  margin-left: 10px;
+	}
+	.grid-item img{
+		width: 100%;
+		height: 296px;
+	}
+	.grid-item p{
+		margin-bottom: 10px;
+	}
+	.grid-item a{
+		color: #0000b5;
+	}
+	.grid-item h5{
+		padding: 3px; 3px 0 3px;
+	}
 </style>
-
-
+<div class="grid">
+  	<?php foreach (loop('items') as $item): ?>
+		<div class="grid-item">
+			<?php if (metadata('item', 'has files')): ?>
+				<?php echo link_to_item(item_image('square_thumbnail')); ?>
+    		<?php endif; ?>
+			<h5 class="text-center"><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h5>
+			<p class="text-center"><strong>Author: </strong><?php echo metadata('item', array('Dublin Core', 'Creator')); ?> </p>
+			<p class="text-center"><strong>Year Published: </strong><?php echo metadata('item', array('Dublin Core', 'Date')); ?></p>
+    		<p class="text-center"><strong>Department: </strong><?php 
+    		if(metadata('item','Collection Name')):
+    			echo link_to_items_browse(metadata('item','Collection Name'), array('collection' => metadata('item', 'Collection ID')));
+    		endif; ?></p>
+		</div>
+  	<?php endforeach;?>
+</div>
 
 <div class="row item-row">
 	<?php foreach (loop('items') as $item): ?>
-		<?php echo '<div class="item-list"> <hr />'; ?>
+		<div class="item-list"> <hr />
 		<?php if (metadata('item', 'has files')): ?>
     		<div class="large-4 columns">
         		<?php echo link_to_item(item_image('square_thumbnail')); ?>
     		</div>
+    	<?php endif; ?>
     		<div class="large-8 columns">
     			<h4><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h4>
     			<p><strong>Author: </strong><?php echo metadata('item', array('Dublin Core', 'Creator')); ?> </p>
@@ -56,8 +114,7 @@ $sortLinks[__('Date Added')] = 'added';
     				endif;
     			?></p>
     		</div>
-    	<?php endif; ?>
-		<?php echo '</div>'; ?>
+		</div>
 	<?php endforeach;?>
 </div>
 
