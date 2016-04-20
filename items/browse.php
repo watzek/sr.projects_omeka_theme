@@ -79,6 +79,7 @@ $sortLinks[__('Date Added')] = 'added';
 		padding: 3px; 3px 0 3px;
 	}
 </style>
+
 <div class="grid">
   	<?php foreach (loop('items') as $item): ?>
 		<div class="grid-item">
