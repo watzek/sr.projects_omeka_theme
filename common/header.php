@@ -107,10 +107,9 @@ fire_plugin_hook('public_header');
 				<section class="top-bar-section">
 					<!-- Left Nav Section -->
 					<ul class="left">
-					    <!-- <?php echo public_nav_main();?> -->
-					    <li><a href="/items/browse">Items</a></li>
-					    <li><a href="/collections/browse">Departments</a></li>
-					    <li><?php echo link_to_item_search('More Search Options'); ?></li>
+					    <li <?php if(current_url() == "/items/browse"){echo 'class="active"';} ?>><a href="/items/browse">Items</a></li>
+					    <li <?php if(current_url() == "/collections/browse"){echo 'class="active"';} ?>><a href="/collections/browse">Departments</a></li>
+					    <li <?php if(current_url() == "/items/search"){echo 'class="active"';} ?>><?php echo link_to_item_search('More Search Options'); ?></li>
 					    <li><?php echo search_form(array('show_advanced' => false));?></li>
 					</ul>	
  				</section>
