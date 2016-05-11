@@ -39,6 +39,7 @@ queue_css_url('http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300
 queue_css_file('foundation');
 queue_css_file('app');
 queue_css_file('galleriffic-5');
+queue_css_file('items');
 echo head_css();
 ?>
 

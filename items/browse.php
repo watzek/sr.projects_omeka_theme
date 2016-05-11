@@ -3,7 +3,7 @@ $pageTitle = __('Browse Items');
 echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 ?>
 
-<h1><?php echo $pageTitle;?> <?php echo __('(%s total)', $total_results); ?></h1>
+<!-- <h1><?php echo $pageTitle;?> <?php echo __('(%s total)', $total_results); ?></h1> -->
 
 <nav class="items-nav navigation secondary-nav">
     <?php echo public_nav_items(); ?>
@@ -24,61 +24,6 @@ $sortLinks[__('Date Added')] = 'added';
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
 </div>
 <?php endif; ?>
-
-<style>
-	.item-list{
-		margin-bottom: 20px;
-	}
-	.item-list img{
-		margin-bottom: 20px;
-	}
-	.item-list p{
-		margin-bottom: 10px;
-	}
-
-	
-	* { box-sizing: border-box; }
-
-	/* ---- grid ---- */
-
-	.grid {
-	  max-width: 1000px;
-	}
-
-	/* clearfix */
-	.grid:after {
-	  content: '';
-	  display: block;
-	  clear: both;
-	}
-
-	/* ---- grid-item ---- */
-
-	.grid-item {
-	  width: 300px;
-	  /*height: 600px;*/
-	  float: left;
-	  background: #7DA3A1;
-	  border: 2px solid #333;
-	  border-color: hsla(0, 0%, 0%, 0.5);
-	  border-radius: 5px;
-	  margin-bottom: 20px;
-	  margin-left: 10px;
-	}
-	.grid-item img{
-		width: 100%;
-		height: 296px;
-	}
-	.grid-item p{
-		margin-bottom: 10px;
-	}
-	.grid-item a{
-		color: #0000b5;
-	}
-	.grid-item h5{
-		padding: 3px; 3px 0 3px;
-	}
-</style>
 
 <div class="grid">
   	<?php foreach (loop('items') as $item): ?>
@@ -121,10 +66,10 @@ $sortLinks[__('Date Added')] = 'added';
 
 <?php echo pagination_links(); ?>
 
-<div id="outputs">
+<!-- <div id="outputs">
     <span class="outputs-label"><?php echo __('Output Formats'); ?></span>
     <?php echo output_format_list(false); ?>
-</div>
+</div> -->
 
 <?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
 
