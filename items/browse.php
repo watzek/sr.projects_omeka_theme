@@ -11,19 +11,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 
 <?php echo item_search_filters(); ?>
 
-<?php echo pagination_links(); ?>
-
-<?php if ($total_results > 0): ?>
-
-<?php
-$sortLinks[__('Title')] = 'Dublin Core,Title';
-$sortLinks[__('Creator')] = 'Dublin Core,Creator';
-$sortLinks[__('Date Added')] = 'added';
-?>
-<div id="sort-links">
-    <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
-</div>
-<?php endif; ?>
+<div class="pagination-centered"><?php echo pagination_links(); ?></div>
 
 <div class="grid">
   	<?php foreach (loop('items') as $item): ?>
@@ -41,6 +29,8 @@ $sortLinks[__('Date Added')] = 'added';
 		</div>
   	<?php endforeach;?>
 </div>
+
+<div class="pagination-centered"><?php echo pagination_links(); ?></div>
 
 <div class="row item-row">
 	<?php foreach (loop('items') as $item): ?>
@@ -64,12 +54,7 @@ $sortLinks[__('Date Added')] = 'added';
 	<?php endforeach;?>
 </div>
 
-<?php echo pagination_links(); ?>
-
-<!-- <div id="outputs">
-    <span class="outputs-label"><?php echo __('Output Formats'); ?></span>
-    <?php echo output_format_list(false); ?>
-</div> -->
+<div class="pagination-centered"><?php echo pagination_links(); ?></div>
 
 <?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
 

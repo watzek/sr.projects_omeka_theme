@@ -71,6 +71,7 @@ queue_js_file('foundation/foundation.forms');
     <?php queue_js_file('jush'); ?>
     <?php queue_js_file('masonry.pkgd'); ?>
     <?php queue_js_file('grid_load'); ?>
+    <?php queue_js_file('scrollreveal'); ?>
   	<?php echo head_js(); ?>
 
 </head>

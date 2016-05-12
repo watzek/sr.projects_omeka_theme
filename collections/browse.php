@@ -19,7 +19,6 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 <div id="sort-links">
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
 </div>
-
 <div class="container">
 	<div class="row">
 	<?php
@@ -33,10 +32,9 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 		<?php }else{ ?>
 			<div class="small-3 columns collection-col">
 		<?php } //all the data of goes here:?>
-
-			    <?php if ($collectionImage = record_image('collection', 'square_thumbnail')): ?>
-			    	<?php echo link_to_items_browse($collectionImage, array('collection' => metadata('collection', 'id'))); ?>
-   				<?php endif; ?>
+			    <a href ="/items/browse?collection=<?php echo metadata('collection', 'id');?>">
+			    	<img class="collection_image" src="<?php echo metadata('collection', array('Dublin Core', 'Source')); ?>" />
+			    </a>
    				<h3><?php echo link_to_items_browse(__(metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id'))); ?></h3>
 
 			</div><!-- end class="small-3" -->
@@ -59,5 +57,20 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 <?php echo pagination_links(); ?>
 
 <?php fire_plugin_hook('public_collections_browse', array('collections'=>$collections, 'view' => $this)); ?>
+
+<script type="text/javascript">
+	//Scroll effect Javascript using scrollreveal by RJ 05/12/16
+	var colReveal = {
+		delay : 200,
+		duration: 800,
+		useDelay: 'always',
+		distance: '100px',
+		easing : 'ease-in-out',
+		reset: false,
+		viewOffset: {top: 64}
+	}
+	window.sr = ScrollReveal();
+	sr.reveal('.collection-col', colReveal);
+</script>
 
 <?php echo foot(); ?>

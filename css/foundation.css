@@ -2735,7 +2735,7 @@ form.custom {
       .top-bar-section ul li > a.button.alert:hover {
         background: #970b0e; }
   .top-bar-section ul li.active > a {
-    background: #2b2b2b; }
+    background: #1A5948; }
   .top-bar-section .has-form {
     padding: 15px; }
   .top-bar-section .has-dropdown {
@@ -3596,7 +3596,9 @@ kbd {
       background: #2ba6cb;
       color: white;
       font-weight: bold;
-      cursor: default; }
+      cursor: default; 
+      border-radius: 5px;
+    }
       .pagination li.current a:hover, .pagination li.current a:focus {
         background: #2ba6cb; }
 
