@@ -2832,8 +2832,12 @@ form.custom {
       display: inline; }
       .top-bar-section ul li {
         float: left; }
+      #search-form{
+        width: 400px;
+      }
         .top-bar-section ul li .js-generated {
           display: none; }
+      }
     .top-bar-section li a:not(.button) {
       padding: 0 15px;
       line-height: 45px;

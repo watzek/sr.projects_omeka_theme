@@ -40,6 +40,9 @@ queue_css_file('foundation');
 queue_css_file('app');
 queue_css_file('galleriffic-5');
 queue_css_file('items');
+queue_css_file('slick/slick');
+queue_css_file('slick/slick-theme');
+queue_css_file('slick_custom');
 echo head_css();
 ?>
 
@@ -64,14 +67,17 @@ queue_js_file('vendor/custom.modernizr');
 queue_js_file('foundation/foundation.forms');
 ?>
 
-	<?php //galleriffic ?>
     <?php queue_js_file('jquery.galleriffic'); ?>    
-
     <?php queue_js_file('jquery.opacityrollover'); ?>
     <?php queue_js_file('jush'); ?>
     <?php queue_js_file('masonry.pkgd'); ?>
-    <?php queue_js_file('grid_load'); ?>
+    <!-- We want masonry grid to be loaded only on browse items page -->
+    <?php if(current_url() == "/items/browse"){queue_js_file('grid_load');} ?>
     <?php queue_js_file('scrollreveal'); ?>
+    <!-- Jquery 2.2.0 is required for carousel on main page but is conflicting with Jquery used on browse items page therefore if statement -->
+    <?php if(current_url() != "/items/browse"){queue_js_file('jquery-2.2.0.min');} ?>
+    <?php queue_js_file('slick/slick.min'); ?>
+    <?php queue_js_file('slick_load'); ?>
   	<?php echo head_js(); ?>
 
 </head>
@@ -111,7 +117,7 @@ fire_plugin_hook('public_header');
 					    <li <?php if(current_url() == "/items/browse"){echo 'class="active"';} ?>><a href="/items/browse">Items</a></li>
 					    <li <?php if(current_url() == "/collections/browse"){echo 'class="active"';} ?>><a href="/collections/browse">Departments</a></li>
 					    <li <?php if(current_url() == "/items/search"){echo 'class="active"';} ?>><?php echo link_to_item_search('More Search Options'); ?></li>
-					    <li><?php echo search_form(array('show_advanced' => false));?></li>
+					    <li class="search-form"><?php echo search_form(array('show_advanced' => false));?></li>
 					</ul>	
  				</section>
 		    </nav>

@@ -1,0 +1,18 @@
+  .slick-slide {
+    margin: 0px 20px;
+  }
+
+  .slick-slide img {
+    height: 350px;
+    width: 300px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+      color: black;
+  }
+  .slider-caption{
+    padding-top: 20px;
+  }

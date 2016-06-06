@@ -19,55 +19,35 @@ if ($homepageText = get_theme_option('Homepage Text')):
     <?php
 endif;
 ?>
-
-
-    <?php
-if ((get_theme_option('Display Featured Exhibit')) && function_exists('exhibit_builder_display_random_featured_exhibit')):
-?>
-    <!-- Featured Exhibit -->
-    <?php
-    echo exhibit_builder_display_random_featured_exhibit();
-
-?>
-    <?php
-endif;
-?>
-
 </div>
+
+
 <!-- Featured Collection -->
-<div class="row">
-<div class="large-12 columns">
 
-			<div id="featured" class="panel">
+<div class="featured-collections slider">
+  <?php
+    //Getting all the featured collection over getting only one random collection 
+    $db = get_db();
+    $table = $db->getTable('Collection');
+    $select = $table->getSelect()->where("featured = 1");
+    $collections = $table->fetchObjects($select);
 
-	<?php
-if (get_theme_option('Display Featured Collection')):
-?>
+    foreach ($collections as $col) {
+      set_current_record('collection', $col);
+      echo '<div class="featured-col">';
+        echo '<img src='.metadata('collection', array('Dublin Core', 'Source')).' />';
+        echo '<span class="slider-caption">'.metadata('collection', array('Dublin Core', 'Title')).'</span>';
+      echo '</div>';
+    }
+  ?>
+</div>
 
-	<div id="featured-collection" >
-<?php
-    echo random_featured_collection();
-?>
-
-	</div>
-	
-	</div>
-	
-
-	</div>
-
-<?php
-endif;
-?>
-	<!-- end featured collection -->
 
 <!-- Featured Item -->
 
 <?php
 if (get_theme_option('Display Featured Item') == 1):
 ?>
-
-</div>
 
 <div class="row">
   <div id="featured-items" class="small-12 large-6 columns">
