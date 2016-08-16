@@ -28,7 +28,6 @@ html, body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -213px; /* the bottom margin is the negative value of the footer's height */
 }
 /* --------------------------------------------------
 Default colour scheme reference
@@ -231,7 +230,6 @@ Footer
 	position: relative;
 	/*to remove whitespace below footer*/
 	padding-bottom: 16px;
-	height: 213px;
 }
 
 #footer a{
