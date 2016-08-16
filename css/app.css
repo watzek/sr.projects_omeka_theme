@@ -30,9 +30,6 @@ html, body {
     height: 100%;
     margin: 0 auto -213px; /* the bottom margin is the negative value of the footer's height */
 }
-.push {
-	height:213px;
-}
 /* --------------------------------------------------
 Default colour scheme reference
 
@@ -233,7 +230,7 @@ Footer
 	color: white;
 	position: relative;
 	/*to remove whitespace below footer*/
-	/*padding-bottom: 16px;*/
+	padding-bottom: 16px;
 	height: 213px;
 }
 
