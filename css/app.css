@@ -231,6 +231,8 @@ Footer
 	width: 100%;
 	color: white;
 	position: relative;
+	/*to remove whitespace below footer*/
+	padding-bottom: 16px;
 }
 
 #footer a{
