@@ -2,13 +2,13 @@
 /* Artfully masterminded by ZURB  */
 
 /* --------------------------------------------------
-Working with ZURB 
+Working with ZURB
 
-Zurb is a CSS framework for rapid prototyping based around a 12-column, percentage-based grid. 
+Zurb is a CSS framework for rapid prototyping based around a 12-column, percentage-based grid.
 
-There are columns to structure the page.  
+There are columns to structure the page.
 Rows create a max-width and contain the columns;
-e.g. 
+e.g.
 
 
 <!-- Foundation 3 Structure -->
@@ -17,11 +17,20 @@ e.g.
   <div class="six columns">
 </div>
 
-There's a lot more to it than this, check out http://foundation.zurb.com/docs/ for info. 
+There's a lot more to it than this, check out http://foundation.zurb.com/docs/ for info.
 
 */
 
-
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -213px; /* the bottom margin is the negative value of the footer's height */
+    border:solid 1px red;
+}
 
 /* --------------------------------------------------
 Default colour scheme reference
@@ -63,7 +72,7 @@ h1#site-title a{
 	ul#sort-links-list li { float: left; display: inline; margin-left: 9px; margin-bottom: 10px; }
 	ul#sort-links-list a { text-decoration: none; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; }
 	#sort-links-list li.sorting a { font-weight: bold; background: #2ba6cb; color: #fff; padding: 3px 9px; cursor: default; }
-	
+
 .sort-label {
 	display: inline;
 	float: left;
@@ -72,7 +81,7 @@ h1#site-title a{
 	margin-bottom: 0.625em;
 	margin-left: 0.5625em;
 	margin-top: 0.7em;
-	
+
 }
 
 .items-nav  {
@@ -118,7 +127,7 @@ border: none;
 }
 
 #search-form input{
-overflow: hidden; 
+overflow: hidden;
 width:70%;
 display: inline-block;
 }
@@ -184,7 +193,7 @@ padding: 20px 0;}
 	overflow: hidden;
 
 	margin: 0 0 1em;
-	
+
 }
 
 .hTagcloud li {
@@ -216,12 +225,17 @@ color: white;
 /* -----------------------------------------
 Footer
 ----------------------------------------- */
-
+.push{
+	/*height of footer*/
+	height: 213px;
+}
 #footer {
 	border-top: 1px solid #dddddd;
 	background: #113300;
 	width: 100%;
 	color: white;
+	/*height of footer*/
+  height: 213px;
 }
 
 #footer a{
@@ -234,7 +248,7 @@ Footer
 
 ul.link-list {
 	display: inline-block;
-	
+
 }
 
 ul.link-list a, #footer h4 {
@@ -253,9 +267,9 @@ Container
 div#container, div.container { position: relative; width: auto; margin: 0 auto; padding: 0; }
 
 .collection-col {
-	float: left; 
-	display: inline; 
-	margin: 0 0 0 40px; 
+	float: left;
+	display: inline;
+	margin: 0 0 0 40px;
 	width: 185px;
 	padding-left: 0px;
 	padding-right: 0px;
@@ -263,7 +277,7 @@ div#container, div.container { position: relative; width: auto; margin: 0 auto; 
 	background-color: #14273C;
 	height: 330px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-top: 40px;	
+	margin-top: 40px;
 }
 
 .collection-col img{
@@ -293,17 +307,17 @@ div#container, div.container { position: relative; width: auto; margin: 0 auto; 
 .two { width: 440px; }
 .three { width: 680px; }
 .four { width: 920px; }
- 
+
 .offset-by-one-half { margin-left: 120px; }
 .offset-by-one { margin-left: 240px; }
 .offset-by-two { margin-left: 480px; }
- 
+
 /* Clear the columns automagically, thanks @kneath */
 .column-row:after, .row:after, .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 * html .column-row, * html .row, * html .clearfix { height: 1%; }
 .column-row, .row, .clearfix { display: inline-block; }
 .column-row, .row, .clearfix { display: block; }
- 
+
 /* IE6 Problems ---------- */
 body.ie .column-row { width: 960px; }
 body.ie .two-thirds .column-row { width: 1960px; }

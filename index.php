@@ -150,6 +150,9 @@ echo link_to_items_browse(__('View All Items'));
 
 </div><!-- end primary -->
 
+<div class="push"></div>
+<!-- End of wrapper div:  -->
+</div>
 
 <footer>
 <?php
