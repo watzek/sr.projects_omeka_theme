@@ -123,6 +123,5 @@ fire_plugin_hook('public_header');
 		    </nav>
 	</div>
 
-	<div class="wrapper">
 		<div class="row">
 			<div class="large-12 columns">

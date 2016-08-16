@@ -1,6 +1,5 @@
 		</div><!-- large-12 columns  -->
 	</div><!-- row  -->
-</div><!-- wrapper  -->
 	<div id="footer">
 	    <?php if ( $footerText = get_theme_option('Footer Text') ): ?>
         <p><?php echo $footerText; ?></p>

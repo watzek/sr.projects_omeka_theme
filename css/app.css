@@ -24,11 +24,6 @@ There's a lot more to it than this, check out http://foundation.zurb.com/docs/ f
 html, body {
     height: 100%;
 }
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-}
 /* --------------------------------------------------
 Default colour scheme reference
 
