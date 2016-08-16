@@ -43,6 +43,7 @@ queue_css_file('items');
 queue_css_file('slick/slick');
 queue_css_file('slick/slick-theme');
 queue_css_file('slick_custom');
+queue_css_file('index_page');
 echo head_css();
 ?>
 
