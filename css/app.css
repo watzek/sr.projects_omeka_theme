@@ -225,17 +225,11 @@ color: white;
 /* -----------------------------------------
 Footer
 ----------------------------------------- */
-.push{
-	/*height of footer*/
-	height: 213px;
-}
 #footer {
 	border-top: 1px solid #dddddd;
 	background: #113300;
 	width: 100%;
 	color: white;
-	/*height of footer*/
-  height: 213px;
 }
 
 #footer a{
