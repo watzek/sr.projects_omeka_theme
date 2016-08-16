@@ -1,15 +1,16 @@
-</div>
-</div>
+		</div><!-- large-12 columns  -->
+	</div><!-- row  -->
+</div><!-- wrapper  -->
 	<div id="footer">
 	    <?php if ( $footerText = get_theme_option('Footer Text') ): ?>
         <p><?php echo $footerText; ?></p>
         <?php endif; ?>
     	<?php fire_plugin_hook('public_footer'); ?>
 		<ul class="pagination">
-	
+
 		</ul>
 		<div class="row">
-			<div class="footer-menu large-4 columns">			
+			<div class="footer-menu large-4 columns">
 				<h4>Lewis & Clark College</h4>
 				<p>
 					0615 SW Palatine Hill Road <br/>
@@ -24,7 +25,7 @@
 					<?php //echo public_nav_main(); ?>
 				</ul>
 			</div>
-			
+
 			<div class="footer-menu large-4 columns">
 				<h4>Credits </h4>
 				<p>
