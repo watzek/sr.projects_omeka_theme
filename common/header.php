@@ -88,9 +88,7 @@ echo body_tag(array(
     'class' => @$bodyclass
 ));
 ?>
-<div class="wrapper">
-
-    <?php
+<?php
 fire_plugin_hook('public_body', array(
     'view' => $this
 ));
