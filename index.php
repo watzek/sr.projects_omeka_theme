@@ -35,7 +35,8 @@ endif;
     foreach ($collections as $col) {
       set_current_record('collection', $col);
       echo '<div class="featured-col">';
-        echo '<a href ="/items/browse?collection="'.metadata('collection', 'id').'">';
+        $id = metadata('collection', 'id');
+        echo '<a href ="/items/browse?collection="'.$id.'">';
         echo '<img src='.metadata('collection', array('Dublin Core', 'Source')).' />';
         echo '</a>';
         echo link_to_items_browse(__(metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id')));
