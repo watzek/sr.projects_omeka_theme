@@ -29,7 +29,9 @@ html, body {
     height: auto !important;
     height: 100%;
     margin: 0 auto -213px; /* the bottom margin is the negative value of the footer's height */
-    border:solid 1px red;
+}
+.push {
+	height:213px;
 }
 /* --------------------------------------------------
 Default colour scheme reference
