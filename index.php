@@ -37,7 +37,7 @@ endif;
       echo '<div class="featured-col">';
         $id = metadata('collection', 'id');
         echo $id;
-        echo '<a href ="/items/browse?collection="'.$id.'">';
+        echo '<a href ="/items/browse?collection='.$id.'">';
         echo '<img src='.metadata('collection', array('Dublin Core', 'Source')).' />';
         echo '</a>';
         echo link_to_items_browse(__(metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id')));
