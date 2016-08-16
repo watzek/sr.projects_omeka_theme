@@ -24,7 +24,13 @@ There's a lot more to it than this, check out http://foundation.zurb.com/docs/ f
 html, body {
     height: 100%;
 }
-
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -213px; /* the bottom margin is the negative value of the footer's height */
+    border:solid 1px red;
+}
 /* --------------------------------------------------
 Default colour scheme reference
 
@@ -225,7 +231,8 @@ Footer
 	color: white;
 	position: relative;
 	/*to remove whitespace below footer*/
-	padding-bottom: 16px;
+	/*padding-bottom: 16px;*/
+	height: 213px;
 }
 
 #footer a{
