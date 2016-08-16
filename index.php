@@ -26,7 +26,7 @@ endif;
 
 <div class="featured-collections slider">
   <?php
-    //Getting all the featured collection over getting only one random collection 
+    //Getting all the featured collection over getting only one random collection
     $db = get_db();
     $table = $db->getTable('Collection');
     $select = $table->getSelect()->where("featured = 1");
@@ -35,8 +35,9 @@ endif;
     foreach ($collections as $col) {
       set_current_record('collection', $col);
       echo '<div class="featured-col">';
-        echo '<img src='.metadata('collection', array('Dublin Core', 'Source')).' />';
-        echo '<span class="slider-caption">'.metadata('collection', array('Dublin Core', 'Title')).'</span>';
+        link_to_collection($text=metadata('collection', array('Dublin Core', 'Title')), $action="browse", $collectionObj = $col);
+        echo '<a href=""><img src='.metadata('collection', array('Dublin Core', 'Source')).' /></a>';
+        echo '<a href=""><span class="slider-caption">'.metadata('collection', array('Dublin Core', 'Title')).'</span></a>';
       echo '</div>';
     }
   ?>
@@ -68,11 +69,12 @@ endif;
 
 <!-- Recent Items -->
 <div id="recent-items" class="small-12 large-6 columns">
-	<!-- Recent Items -->		
+	<!-- Recent Items -->
   <div id="recent-items">
       <h2><?php
 echo __('Recently Added Items');
-?></h2>
+?>
+</h2>
       <?php
 $homepageRecentItems = (int) get_theme_option('Homepage Recent Items') ? get_theme_option('Homepage Recent Items') : '3';
 set_loop_records('items', get_recent_items($homepageRecentItems));
@@ -94,25 +96,31 @@ if (has_loop_records('items')):
             'snippet' => 150
         ))):
 ?>
-              <p class="item-description"><?php
+              <p class="item-description">
+<?php
             echo $itemDescription;
 ?></p>
-          <?php
+<?php
         endif;
-?>						
+?>
       </li>
-      <?php
+<?php
     endforeach;
 ?>
       </ul>
-      <?php
+
+<?php
 else:
 ?>
-      <p><?php
-    echo __('No recent items available.');
-?></p>
-      <?php
-endif;
+
+<p>
+<?php
+  echo __('No recent items available.');
+?>
+</p>
+
+<?php
+  endif;
 ?>
       <p class="view-items-link"><?php
 echo link_to_items_browse(__('View All Items'));
@@ -123,21 +131,19 @@ echo link_to_items_browse(__('View All Items'));
 
 	</div>
 	<!-- Featured Exhibit -->
-	
+
 	<div class="row">
 
 
-    <?php
-if ((get_theme_option('Display Featured Exhibit')) && function_exists('exhibit_builder_random_featured_exhibit')):
+<?php
+  if ((get_theme_option('Display Featured Exhibit')) && function_exists('exhibit_builder_random_featured_exhibit')):
 ?>
 </div>
 
 
- <?php
+<?php
     echo exhibit_builder_display_featured_exhibit();
-?>
-  <?php
-endif;
+    endif;
 ?>
 
 
@@ -146,5 +152,6 @@ endif;
 
 <footer>
 <?php
-echo foot();
-?></footer>
+  echo foot();
+?>
+</footer>
