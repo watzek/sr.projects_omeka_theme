@@ -35,7 +35,6 @@ endif;
     foreach ($collections as $col) {
       set_current_record('collection', $col);
       echo '<div class="featured-col">';
-        link_to_collection($text=metadata('collection', array('Dublin Core', 'Title')), $action="browse", $collectionObj = $col);
         echo '<a href=""><img src='.metadata('collection', array('Dublin Core', 'Source')).' /></a>';
         echo '<a href=""><span class="slider-caption">'.metadata('collection', array('Dublin Core', 'Title')).'</span></a>';
       echo '</div>';
