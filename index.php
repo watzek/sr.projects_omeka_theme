@@ -36,6 +36,7 @@ endif;
       set_current_record('collection', $col);
       echo '<div class="featured-col">';
         $id = metadata('collection', 'id');
+        echo $id;
         echo '<a href ="/items/browse?collection="'.$id.'">';
         echo '<img src='.metadata('collection', array('Dublin Core', 'Source')).' />';
         echo '</a>';
