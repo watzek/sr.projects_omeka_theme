@@ -22,7 +22,7 @@ echo isset($title) ? ' | ' . strip_formatting($title) : '';
   <?php
 echo auto_discovery_link_tags();
 ?>
-  
+
 
   <!-- Plugin Stuff -->
 
@@ -43,6 +43,7 @@ queue_css_file('items');
 queue_css_file('slick/slick');
 queue_css_file('slick/slick-theme');
 queue_css_file('slick_custom');
+queue_css_file('index_page');
 echo head_css();
 ?>
 
@@ -67,7 +68,7 @@ queue_js_file('vendor/custom.modernizr');
 queue_js_file('foundation/foundation.forms');
 ?>
 
-    <?php queue_js_file('jquery.galleriffic'); ?>    
+    <?php queue_js_file('jquery.galleriffic'); ?>
     <?php queue_js_file('jquery.opacityrollover'); ?>
     <?php queue_js_file('jush'); ?>
     <?php queue_js_file('masonry.pkgd'); ?>
@@ -88,7 +89,7 @@ echo body_tag(array(
     'class' => @$bodyclass
 ));
 ?>
-    <?php
+<?php
 fire_plugin_hook('public_body', array(
     'view' => $this
 ));
@@ -99,7 +100,7 @@ fire_plugin_hook('public_body', array(
 fire_plugin_hook('public_header');
 ?>
 		</header>
-		
+
 		        <div id="primary-nav" class="contain-to-grid sticky">
 		<nav class="top-bar">
 		 <ul class="title-area">
@@ -110,7 +111,7 @@ fire_plugin_hook('public_header');
 		    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 		    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 		  </ul>
-	
+
 				<section class="top-bar-section">
 					<!-- Left Nav Section -->
 					<ul class="left">
@@ -118,17 +119,10 @@ fire_plugin_hook('public_header');
 					    <li <?php if(current_url() == "/collections/browse"){echo 'class="active"';} ?>><a href="/collections/browse">Departments</a></li>
 					    <li <?php if(current_url() == "/items/search"){echo 'class="active"';} ?>><?php echo link_to_item_search('More Search Options'); ?></li>
 					    <li class="search-form"><?php echo search_form(array('show_advanced' => false));?></li>
-					</ul>	
+					</ul>
  				</section>
 		    </nav>
 	</div>
 
-	<div class="row">
-		<div class="large-12 columns">
-
-
-
-
-      
-
-
+		<div class="row">
+			<div class="large-12 columns">
