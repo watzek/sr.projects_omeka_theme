@@ -36,7 +36,7 @@ endif;
       set_current_record('collection', $col);
       echo '<div class="featured-col">';
         echo '<a href ="/items/browse?collection='.metadata('collection', 'id').'">';
-        echo '<img src='.metadata('collection', array('Dublin Core', 'Source')).' />';
+        echo '<img src='.src((metadata('collection', array('Dublin Core', 'Source'))), 'images/collection_thumb').' />';
         echo '</a>';
         echo link_to_items_browse(__(metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id')));
       echo '</div>';
