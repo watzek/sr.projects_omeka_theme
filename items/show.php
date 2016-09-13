@@ -2,19 +2,36 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 <div id="primary">
     <h1><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
+    <h3>By: <?php echo metadata('item', array('Dublin Core','Creator')); ?></h3>
 
 <style>
 .gallerythumb{
 
 
 
-    
+
 }
 .slideshow .image-wrapper a img{width: 500px;}
 ul.thumbs li a img {
     width: 90px;
     height: 90px;
+}
 
+.item-value{
+  margin: 0;
+  padding-top: 4px;
+  font-size: 15px;
+}
+
+.item-field{
+  font-size: 20px;
+  margin: 0;
+  width: 250px;
+  float: left;
+  padding-bottom: 30px;
+}
+#item-metadata{
+  margin-top: 30px;
 }
 </style>
 
@@ -25,7 +42,7 @@ $collection = get_collection_for_item();
 
 if ($collection->id==27){
 
-    
+
 
 
          set_loop_records('files', get_current_record('item')->Files);
@@ -33,33 +50,33 @@ if ($collection->id==27){
                 <div class="navigation-container">
                     <div id="thumbs" class="navigation">
                         <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
-                    
+
                         <ul class="thumbs noscript">
 <?php
             foreach(loop('files') as $file){
                 $f=$file->filename;
                 $title= metadata('file', array('Dublin Core', 'Title'));
-                $metadata=getFileMetadata($file);   
+                $metadata=getFileMetadata($file);
 
 ?>
                         <li>
                                 <a class="thumb " name="" href="/files/fullsize/<?=$f ?>" title="<?= $title?>">
-                                    
+
                                 <?php echo file_image('square_thumbnail', array('class' => 'thumbnail'), $file); ?>
                                 </a>
                                 <div class="caption">
                                     <div class="image-title"><?= $title ?></div>
                                     <div class="image-desc">
-                                    
-                                        <?= $metadata?>
-                                    
 
-                                    
-                                    
-                                    
-                                    
+                                        <?= $metadata?>
+
+
+
+
+
+
                                     </div>
-                                    
+
                                     <!--
                                     <div class="download">
                                         <a href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Download Originalzzz</a>
@@ -70,12 +87,12 @@ if ($collection->id==27){
 <?php
 
 
-                
+
 
 
             }
-            
-            
+
+
 
 ?>
 </ul>
@@ -93,7 +110,7 @@ if ($collection->id==27){
                     </div>
                 </div>
                 <!-- End Gallery Html Containers -->
-        
+
 
 <?php
 }  /* end if coll==27 */
@@ -101,11 +118,11 @@ else{
 
 
         $filecount=count($item->Files);
-        
+
         $nodisplay=array("tif","tiff","jpg","jpeg");
-        
+
         //var_dump($_SESSION);
-        
+
         $isPublic= metadata($item, array('Item Type Metadata', 'IsPublic'));
         if ($_SESSION["Zend_Auth"]["storage"]){
             $auth=true;
@@ -116,79 +133,97 @@ else{
 
 
         if ($isPublic=="yes" || ($isPublic=="no" && $auth==true)){
-        
+
             if ($filecount>0){
-            
+
                 $fn=$item->Files[0]->filename;
 
                 $f=explode(".", $fn);
                 $ext=strtolower($f[1]);
                 if (!in_array($ext, $nodisplay)){
-                    echo files_for_item(array('imageSize' => 'fullsize')); 
+                    echo files_for_item(array('imageSize' => 'fullsize'));
                 }
 
-            }       
-        
-        
+            }
+
+
         }
-        
+
         if ($isPublic=="no" && $auth==false){
-        
-        
+
+
             echo "<p>You must sign in to view this document.</p>";
         }
 }
 
-
+strong
 
 ?>
 
 
     <!-- Items metadata -->
     <div id="item-metadata">
-        <?php echo all_element_texts('item'); ?>
+        <p class="item-field">Title</p>
+        <p class="item-value"><?php echo metadata('item', array('Dublin Core','Title')); ?></p>
+        <div style="clear: both;"></div>
+
+        <p class="item-field">Creator</p>
+        <p class="item-value"><?php echo metadata('item', array('Dublin Core','Creator')); ?></p>
+        <div style="clear: both;"></div>
+
+        <p class="item-field">Date</p>
+        <p class="item-value"><?php echo metadata('item', array('Dublin Core','Date')); ?></p>
+        <div style="clear: both;"></div>
+
+        <p class="item-field">Thesis Type</p>
+        <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Thesis Type')); ?></p>
+        <div style="clear: both;"></div>
+
+        <p class="item-field">Year Author Born</p>
+        <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Year Author Born')); ?></p>
+        <div style="clear: both;"></div>
+
+        <?php if(tag_string('item', $link='items/browse', $delimiter = ', ')){ ?>
+        <p class="item-field">Keywords</p>
+        <p class="item-value"><?php echo tag_string('item', $link='items/browse', $delimiter = ', '); ?></p>
+        <div style="clear: both;"></div>
+        <?php } ?>
+
+        <p class="item-field">Professor</p>
+        <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Professor')); ?></p>
+        <div style="clear: both;"></div>
+        <?php
+          $collection = get_collection_for_item();
+          if ($collection){
+        ?>
+            <p class="item-field">Department</p>
+            <p class="item-value"><a href ="/items/browse?collection=<?php echo metadata($collection, 'id');?>" ><?php echo metadata($collection, array('Dublin Core','Title'));?></a></p>
+            <div style="clear: both;"></div>
+        <?php  } ?>
+
+        <p class="item-field">Citation</p>
+        <p class="item-value"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></p>
+        <div style="clear: both;"></div>
+
     </div>
 <!--
     <h3><?php echo __('Files'); ?></h3>
     <div id="item-images">
          <?php echo files_for_item(); ?>
-         
+
          <?php
          /*
          set_loop_records('files', get_current_record('item')->Files);
 
             foreach(loop('files') as $file)
-                
+
                 echo metadata('file', array('Dublin Core', 'Title'));
-         
+
          */
          ?>
-         
-         
+
+
     </div>-->
-
-   <?php if(metadata('item','Collection Name')): ?>
-      <div id="collection" class="element">
-        <h3><?php echo __('Collection'); ?></h3>
-        <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
-      </div>
-   <?php endif; ?>
-
-     <!-- The following prints a list of all tags associated with the item -->
-    <?php if (metadata('item','has tags')): ?>
-    <div id="item-tags" class="element">
-        <h3><?php echo __('Tags'); ?></h3>
-        <div class="element-text"><?php echo tag_string('item'); ?></div>
-    </div>
-    <?php endif;?>
-
-    <!-- The following prints a citation for this item. -->
-    <div id="item-citation" class="element">
-        <h3><?php echo __('Citation'); ?></h3>
-        <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
-    </div>
-       <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
-
 
     <ul class="item-pagination navigation">
         <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
@@ -216,7 +251,7 @@ else{
                     fadeSpeed:         'fast',
                     exemptionSelector: '.selected'
                 });
-                
+
                 // Initialize Advanced Galleriffic Gallery
                 var gallery = $('#thumbs').galleriffic({
                     delay:                     2500,
@@ -252,7 +287,7 @@ else{
 
                             d=$("span.current a img").attr("src");
                             if ($("span.current a img").attr("src")==undefined){
-                            
+
                                 e=$("a.thumb:first img").attr("src");
                                 d = e.replace("square_thumbnails", "fullsize");
                                 console.log(d);
@@ -267,9 +302,9 @@ else{
                             img.src=d;
                             h=img.height;
                             w=img.width;
-                            
+
                             console.log(img.height);
-                            
+
                     },
                     onPageTransitionOut:       function(callback) {
                         this.fadeTo('fast', 0.0, callback);
@@ -277,7 +312,7 @@ else{
                     onPageTransitionIn:        function() {
                         var prevPageLink = this.find('a.prev').css('visibility', 'hidden');
                         var nextPageLink = this.find('a.next').css('visibility', 'hidden');
-                        
+
                         // Show appropriate next / prev page links
                         if (this.displayedPage > 0)
                             prevPageLink.css('visibility', 'visible');
@@ -307,15 +342,15 @@ else{
 
             });
         </script>
-        
-        
-        
+
+
+
 <?php
 function getFileMetadata($file){
-    
-    
+
+
     $metadata="";
-    
+
     $creator= metadata('file', array('Dublin Core', 'Creator'));
     $date= metadata('file', array('Dublin Core', 'Date'));
     $format= metadata('file', array('Dublin Core', 'Format'));
@@ -324,7 +359,7 @@ function getFileMetadata($file){
     $workType=metadata('file', array('Dublin Core', 'Type'));
     $view=metadata('file', array('Dublin Core', 'Spatial Coverage'));
     $medium=metadata('file', array('Dublin Core', 'Medium'));
-    
+
     if (!empty($creator)){$metadata.="<div class='gallerymd'><label>Creator</label> $creator</div>";}
     if (!empty($date)){$metadata.="<div class='gallerymd'><label>Date</label> $date</div>";}
     if (!empty($format)){$metadata.="<div class='gallerymd'><label>Format</label> $format</div>";}
@@ -332,8 +367,8 @@ function getFileMetadata($file){
     if (!empty($workType)){$metadata.="<div class='gallerymd'><label>WorkType</label> $workType</div>";}
     if (!empty($view)){$metadata.="<div class='gallerymd'><label>View</label> $view</div>";}
     if (!empty($rights)){$metadata.="<div class='gallerymd'><label>Rights</label> $rights</div>";}
-    
-    return $metadata;   
+
+    return $metadata;
 
 
 }
@@ -341,4 +376,4 @@ function getFileMetadata($file){
 
 
 
-?>      
+?>
