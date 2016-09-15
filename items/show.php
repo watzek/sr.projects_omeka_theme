@@ -171,27 +171,48 @@ strong
         <p class="item-value"><?php echo metadata('item', array('Dublin Core','Creator')); ?></p>
         <div style="clear: both;"></div>
 
-        <p class="item-field">Date</p>
-        <p class="item-value"><?php echo metadata('item', array('Dublin Core','Date')); ?></p>
-        <div style="clear: both;"></div>
+        <?php
+          $value = metadata('item', array('Dublin Core','Date'));
+          if ($value){
+        ?>
+          <p class="item-field">Date</p>
+          <p class="item-value"><?php echo metadata('item', array('Dublin Core','Date')); ?></p>
+          <div style="clear: both;"></div>
+        <?php  } ?>
 
-        <p class="item-field">Thesis Type</p>
-        <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Thesis Type')); ?></p>
-        <div style="clear: both;"></div>
+        <?php
+          $value = metadata('item', array('Item Type Metadata','Thesis Type'));
+          if ($value){
+        ?>
+          <p class="item-field">Thesis Type</p>
+          <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Thesis Type')); ?></p>
+          <div style="clear: both;"></div>
+        <?php  } ?>
 
-        <p class="item-field">Year Author Born</p>
-        <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Year Author Born')); ?></p>
-        <div style="clear: both;"></div>
+        <?php
+          $value = metadata('item', array('Item Type Metadata','Year Author Born'));
+          if ($value){
+        ?>
+          <p class="item-field">Year Author Born</p>
+          <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Year Author Born')); ?></p>
+          <div style="clear: both;"></div>
+        <?php  } ?>
 
         <?php if(tag_string('item', $link='items/browse', $delimiter = ', ')){ ?>
-        <p class="item-field">Keywords</p>
-        <p class="item-value"><?php echo tag_string('item', $link='items/browse', $delimiter = ', '); ?></p>
-        <div style="clear: both;"></div>
+          <p class="item-field">Keywords</p>
+          <p class="item-value"><?php echo tag_string('item', $link='items/browse', $delimiter = ', '); ?></p>
+          <div style="clear: both;"></div>
         <?php } ?>
 
-        <p class="item-field">Professor</p>
-        <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Professor')); ?></p>
-        <div style="clear: both;"></div>
+        <?php
+          $value = metadata('item', array('Item Type Metadata','Professor'));
+          if ($value){
+        ?>
+          <p class="item-field">Professor</p>
+          <p class="item-value"><?php echo metadata('item', array('Item Type Metadata','Professor')); ?></p>
+          <div style="clear: both;"></div>
+        <?php  } ?>
+
         <?php
           $collection = get_collection_for_item();
           if ($collection){
