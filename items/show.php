@@ -70,11 +70,6 @@ if ($collection->id==27){
 
                                         <?= $metadata?>
 
-
-
-
-
-
                                     </div>
 
                                     <!--
@@ -84,17 +79,7 @@ if ($collection->id==27){
                                     -->
                                 </div>
                             </li>
-<?php
-
-
-
-
-
-            }
-
-
-
-?>
+<?php } ?>
 </ul>
                         <a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
                     </div>
@@ -155,8 +140,6 @@ else{
             echo "<p>You must sign in to view this document.</p>";
         }
 }
-
-strong
 
 ?>
 
