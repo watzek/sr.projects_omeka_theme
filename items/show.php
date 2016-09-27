@@ -4,37 +4,6 @@
     <h1><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
     <h3>By: <?php echo metadata('item', array('Dublin Core','Creator')); ?></h3>
 
-<style>
-.gallerythumb{
-
-
-
-
-}
-.slideshow .image-wrapper a img{width: 500px;}
-ul.thumbs li a img {
-    width: 90px;
-    height: 90px;
-}
-
-.item-value{
-  margin: 0;
-  padding-top: 4px;
-  font-size: 15px;
-}
-
-.item-field{
-  font-size: 20px;
-  margin: 0;
-  width: 250px;
-  float: left;
-  padding-bottom: 30px;
-}
-#item-metadata{
-  margin-top: 30px;
-}
-</style>
-
 <?php
 
 $collection = get_collection_for_item();
@@ -56,71 +25,16 @@ if ($collection->id==55){ ?>
     foreach(loop('files') as $file){
       echo '<div class="studio-files">';
         echo file_image('fullsize', array('class' => 'fullsize'), $file);
+        echo '<br />';
         $file_metadata = getFileMetadata($file);
         echo $file_metadata;
       echo '</div>';
     }
     ?>
     </div><!-- closing div for featured-studio-art slider -->
+    <hr />
   <?php
 }
-
-if ($collection->id==55){
-
-         set_loop_records('files', get_current_record('item')->Files);
-?>
-                <div class="navigation-container">
-                    <div id="thumbs" class="navigation">
-                        <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
-
-                        <ul class="thumbs noscript">
-<?php
-            foreach(loop('files') as $file){
-                $f=$file->filename;
-                $title= metadata('file', array('Dublin Core', 'Title'));
-                $metadata=getFileMetadata($file);
-
-?>
-                        <li>
-                                <a class="thumb " name="" href="/files/fullsize/<?=$f ?>" title="<?= $title?>">
-
-                                <?php echo file_image('square_thumbnail', array('class' => 'thumbnail'), $file); ?>
-                                </a>
-                                <div class="caption">
-                                    <div class="image-title"><?= $title ?></div>
-                                    <div class="image-desc">
-
-                                        <?= $metadata?>
-
-                                    </div>
-
-                                    <!--
-                                    <div class="download">
-                                        <a href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_b.jpg">Download Originalzzz</a>
-                                    </div>
-                                    -->
-                                </div>
-                            </li>
-<?php } ?>
-</ul>
-                        <a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="slideshow-container">
-                        <div id="controls" class="controls"></div>
-                        <div id="loading" class="loader"></div>
-                        <div id="slideshow" class="slideshow"></div>
-                    </div>
-                    <div id="caption" class="caption-container">
-                        <div class="photo-index"></div>
-                    </div>
-                </div>
-                <!-- End Gallery Html Containers -->
-
-
-<?php
-}  /* end if coll==55 */
 else{
 
 
@@ -377,22 +291,23 @@ function getFileMetadata($file){
 
     $metadata="";
 
+    $title= metadata('file', array('Dublin Core', 'Title'));
     $creator= metadata('file', array('Dublin Core', 'Creator'));
     $date= metadata('file', array('Dublin Core', 'Date'));
     $format= metadata('file', array('Dublin Core', 'Format'));
-    //$dimensions=metadata('file', array('Dublin Core', 'Extent'));
     $rights=metadata('file', array('Dublin Core', 'License'));
     $workType=metadata('file', array('Dublin Core', 'Type'));
-    $view=metadata('file', array('Dublin Core', 'Spatial Coverage'));
     $medium=metadata('file', array('Dublin Core', 'Medium'));
+    $dimension=metadata('file', array('Dublin Core', 'Extent'));
 
-    if (!empty($creator)){$metadata.="<div class='gallerymd'><label>Creator</label> $creator</div>";}
-    if (!empty($date)){$metadata.="<div class='gallerymd'><label>Date</label> $date</div>";}
-    if (!empty($format)){$metadata.="<div class='gallerymd'><label>Format</label> $format</div>";}
-    if (!empty($medium)){$metadata.="<div class='gallerymd'><label>Medium</label> $medium</div>";}
-    if (!empty($workType)){$metadata.="<div class='gallerymd'><label>WorkType</label> $workType</div>";}
-    if (!empty($view)){$metadata.="<div class='gallerymd'><label>View</label> $view</div>";}
-    if (!empty($rights)){$metadata.="<div class='gallerymd'><label>Rights</label> $rights</div>";}
+    if (!empty($title)){$metadata.='<p class="item-field">Title</p><p class="item-value">'.$title.'</p><div style="clear: both;"></div>';}
+    if (!empty($creator)){$metadata.='<p class="item-field">Creator</p><p class="item-value">'.$creator.'</p><div style="clear: both;"></div>';}
+    if (!empty($date)){$metadata.='<p class="item-field">Date</p><p class="item-value">'.$date.'</p><div style="clear: both;"></div>';}
+    if (!empty($format)){$metadata.='<p class="item-field">Format</p><p class="item-value">'.$format.'</p><div style="clear: both;"></div>';}
+    if (!empty($medium)){$metadata.='<p class="item-field">Medium</p><p class="item-value">'.$medium.'</p><div style="clear: both;"></div>';}
+    if (!empty($dimension)){$metadata.='<p class="item-field">Dimensions</p><p class="item-value">'.$dimension.'</p><div style="clear: both;"></div>';}
+    if (!empty($workType)){$metadata.='<p class="item-field">Work Type</p><p class="item-value">'.$workType.'</p><div style="clear: both;"></div>';}
+    if (!empty($rights)){$metadata.='<p class="item-field">Rights</p><p class="item-value">'.$rights.'</p><div style="clear: both;"></div>';}
 
     return $metadata;
 

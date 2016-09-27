@@ -10,7 +10,7 @@
       $('.featured-studio-art').slick({
        slidesToShow: 1,
        slidesToScroll: 1,
-       arrows: false,
+       arrows: true,
        fade: true,
        adaptiveHeight: true,
        asNavFor: '.slider-nav'

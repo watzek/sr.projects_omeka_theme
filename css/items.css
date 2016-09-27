@@ -58,3 +58,22 @@
 .studio-files img{
 	height: auto;
 }
+.featured-studio-art{
+	margin-left: 85px;
+}
+#item-metadata{
+  margin-top: 30px;
+}
+.item-value{
+  margin: 0;
+  padding-top: 4px;
+  font-size: 15px;
+}
+
+.item-field{
+  font-size: 20px;
+  margin: 0;
+  width: 250px;
+  float: left;
+  padding-bottom: 30px;
+}
