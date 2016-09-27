@@ -51,3 +51,10 @@
 .grid-item h5{
 	padding: 3px; 3px 0 3px;
 }
+
+.featured-studio-art{
+	margin-bottom: 50px;
+}
+.studio-files img{
+	height: auto;
+}

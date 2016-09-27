@@ -39,11 +39,33 @@ ul.thumbs li a img {
 
 $collection = get_collection_for_item();
 
+if ($collection->id==55){ ?>
+  <div class="slider-nav">
 
-if ($collection->id==27){
+    <?php
+    set_loop_records('files', get_current_record('item')->Files);
+    foreach(loop('files') as $file){
+      echo file_image('square_thumbnail', array('class' => 'thumbnail'), $file);
+    }
+    ?>
+  </div><!-- closing div for slider-nav slider -->
+  <div class="featured-studio-art">
 
+    <?php
+    set_loop_records('files', get_current_record('item')->Files);
+    foreach(loop('files') as $file){
+      echo '<div class="studio-files">';
+        echo file_image('fullsize', array('class' => 'fullsize'), $file);
+        $file_metadata = getFileMetadata($file);
+        echo $file_metadata;
+      echo '</div>';
+    }
+    ?>
+    </div><!-- closing div for featured-studio-art slider -->
+  <?php
+}
 
-
+if ($collection->id==55){
 
          set_loop_records('files', get_current_record('item')->Files);
 ?>
@@ -98,7 +120,7 @@ if ($collection->id==27){
 
 
 <?php
-}  /* end if coll==27 */
+}  /* end if coll==55 */
 else{
 
 
