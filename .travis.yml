@@ -1,0 +1,16 @@
+language: php
+sudo: required
+services:
+- docker
+notifications:
+  slack:
+  - watzekdi:zEtuD1WHpN9DYmzZFzTsfudX#general
+  webhooks:
+    urls:
+    - https://hooks.microbadger.com/images/watzek/srprojects/yMB1NmgUU6M9h4TajuM-OTIVyQA=
+env:
+    global:
+        - secure: YGp5V8a3StD9ObTLiFoi4HBsCNO1H9phlh8N4oVNYn1tlJwJtzeW/Nq1KDOWjrboSGG4Q+7R1Te18p9bbtJzzJVLn6olCDgSKDtuQa5kNW4ga+zYPOVODvYYbUvvbwqprkbXmdTbNlYwbkNaoOXgzJUz78oUSB9SQVX0c0hc4Rb6KPYNYqXK2VYpwO5IXxpedqX9wah+KaGn5TA6+5p7OM8m5e1P6yqkAHMkGzloQN7f+XvuMrIJyrWJA9raFSoJ8KTlAyMeC+MXx4Uz6GVSOBULPywXHjF+gXfjfszRTc+0Gz83cmsQfNAqAMAzq6fPIMhkqSwIysaBME7BsVHlxbebcEZrHqzf8q8JlnPk4xN7zLEYMyRzkF+WoRG6YfvCNqXNgmAnecLGMAon81RNPtmkZcg+ltMOsBvXDtAWvA03DPN8NjBlbx2v6ivGhg0Yz5p+DBIQQAeyka8Lxsp25dLLIT98mDgY81ER1Adavhj8DB8R6CdUp8lrrktchPN+E9cr7PGjp59MSsez/czckpCUsB/Ejb91vRFf6kUEqqxY6oBpruguOT+nuHi8Rn5ZhoBrXmYVT96zWHfxZxtotpSKa7n3d6zzTJbOoJrsq7Y/59WIMlWkFUZ5rVUNpW2eJ3siN8s0BPNpq93Z6tUm+TEQrh+qYeTWEJ/TxOTVaKE=
+        - secure: KLGS6AE02EcKpq+iONu6MJ9P3X9Ibe1zEHhw62wsui/kg1bcdYt8JG+WSiP3uSDvbXaYeJGgg3uEPWf8q3FmVMZ4amjDaQOdFMCkDuRHnu9GR4+CvNZGPnKFgyuBdHDeyF16SMh/+zjtZR6cgrPtKALRVwXw7Mp2uiNfj4+NewEpkDz+9qQdkGm283+vvY6RTW33bcJ8/jtMHkJtk55azRbL56i5T1lMt3dPJlYqSlpoZ29dzrh+2UnqzwfS/8iheKIZE+yDTT0FXEPYQFG3wQjASjUG1dyco8bjUkwJ1AAd6NyaZ1uu9YoIY4IzP+6Scvwxjk46pSn68+zPjorwnVDDQRtSuj5CDoBaKsyVQ7R/ZmszxMh50otWRj6j03sEpAyUeVGCCOaTrPPiKMUj3LHz+8x6abkqdb23cqTGs2u8L82qDUgyATyjJCkZ273IdMCI5nLt1G9auKHoMxNCVRUowv5Hie01o1As1NKqOAZm7qtGOC1vTT9xl4gZyBy+naXR+rsHuN3ZJS0DJ/Z3eUJ+qJQGSdSVT5VxUWBf8PuYHHIw40ThVF4fdKDthlJgG5uQ3jqlFCA/gmyJtSFASQE/hS32y+RFHDwMfWZehzJuXKnt/G6XJJJ0uNOlIpJ9SoNBrNMKk5smBRNLyQq2B+f+Ol9UbRhJko5GYsp9Rpw=
+script:
+- ./build.sh && ./push.sh
