@@ -1,8 +1,12 @@
-version: '2'
+version: '2.0'
 services:
   db:
     image: mysql:latest
+    volumes:
+      - "./.data/db:/var/lib/mysql"
     restart: always
+    networks:
+      - back
     environment:
       MYSQL_DATABASE: omeka
       MYSQL_USER: omeka
@@ -16,6 +20,9 @@ services:
     links:
       - db
     restart: always
+    networks:
+      - front
+      - back
     environment:
       OMEKA_DB_HOST: db:3306
       OMEKA_DB_USER: omeka
@@ -25,5 +32,12 @@ services:
       OMEKA_DB_CHARSET: utf8
       PHP_UPLOAD_MAX_FILESIZE: 10M
       PHP_POST_MAX_SIZE: 10M
-      APPLICATION_ENV: production
+      APPLICATION_ENV: development
       VIRTUAL_HOST: srprojects.watzek.cloud
+      LETSENCRYPT_HOST: srprojects.watzek.cloud
+      LETSENCRYPT_EMAIL: digitalinitiatives@lclark.edu
+networks:
+  front:
+    external: true
+  back:
+    external: true
