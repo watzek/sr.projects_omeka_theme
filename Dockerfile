@@ -1,4 +1,4 @@
-FROM watzek/omeka
+FROM watzek/omeka:latest
 MAINTAINER Nick Budak <budak@lclark.edu>
 
 # Build-time metadata as defined at http://label-schema.org

@@ -146,24 +146,24 @@ else{
         <div style="clear: both;"></div>
 
     </div>
-<!--
+
     <h3><?php echo __('Files'); ?></h3>
     <div id="item-images">
          <?php echo files_for_item(); ?>
 
          <?php
-         /*
+
          set_loop_records('files', get_current_record('item')->Files);
 
             foreach(loop('files') as $file)
 
                 echo metadata('file', array('Dublin Core', 'Title'));
 
-         */
+         
          ?>
 
 
-    </div>-->
+    </div>
 
     <ul class="item-pagination navigation">
         <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
