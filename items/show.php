@@ -8,7 +8,7 @@
 
 $collection = get_collection_for_item();
 
-if ($collection->id==55){ ?>
+if ($collection->id==27){ ?>
   <div class="slider-nav">
 
     <?php
@@ -45,6 +45,8 @@ else{
         //var_dump($_SESSION);
 
         $isPublic= metadata($item, array('Item Type Metadata', 'IsPublic'));
+        
+       // echo $isPublic;
         if ($_SESSION["Zend_Auth"]["storage"]){
             $auth=true;
         }
@@ -68,12 +70,14 @@ else{
             }
 
 
+
+
         }
 
         if ($isPublic=="no" && $auth==false){
 
 
-            echo "<p>You must sign in to view this document.</p>";
+            echo "<p><a class='loginLink'>You must sign in to view this document</a>.</p>";
         }
 }
 
@@ -137,7 +141,7 @@ else{
           if ($collection){
         ?>
             <p class="item-field">Department</p>
-            <p class="item-value"><a href ="/items/browse?collection=<?php echo metadata($collection, 'id');?>" ><?php echo metadata($collection, array('Dublin Core','Title'));?></a></p>
+            <p class="item-value"><a href ="/seniorprojects/items/browse?collection=<?php echo metadata($collection, 'id');?>" ><?php echo metadata($collection, array('Dublin Core','Title'));?></a></p>
             <div style="clear: both;"></div>
         <?php  } ?>
 
@@ -147,23 +151,7 @@ else{
 
     </div>
 
-    <h3><?php echo __('Files'); ?></h3>
-    <div id="item-images">
-         <?php echo files_for_item(); ?>
 
-         <?php
-
-         set_loop_records('files', get_current_record('item')->Files);
-
-            foreach(loop('files') as $file)
-
-                echo metadata('file', array('Dublin Core', 'Title'));
-
-         
-         ?>
-
-
-    </div>
 
     <ul class="item-pagination navigation">
         <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
@@ -185,7 +173,7 @@ else{
                 // Initially set opacity on thumbs and add
                 // additional styling for hover effect on thumbs
                 var onMouseOutOpacity = 0.67;
-                $('#thumbs ul.thumbs li, div.navigation a.pageLink').opacityrollover({
+                jQuery('#thumbs ul.thumbs li, div.navigation a.pageLink').opacityrollover({
                     mouseOutOpacity:   onMouseOutOpacity,
                     mouseOverOpacity:  1.0,
                     fadeSpeed:         'fast',

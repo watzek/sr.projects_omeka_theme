@@ -33,7 +33,12 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 			<div class="small-3 columns collection-col">
 		<?php } //all the data of goes here:?>
 			    <a href ="/items/browse?collection=<?php echo metadata('collection', 'id');?>">
-			    	<img class="collection_image" src="<?php echo src((metadata('collection', array('Dublin Core', 'Source'))), 'images/collection_thumb'); ?>" />
+			    <!--	<img class="collection_image" src="<?php #echo src((metadata('collection', array('Dublin Core', 'Source'))), 'images/collection_thumb'); ?>" />-->
+			   <?php
+			     $x= metadata('collection', array('Dublin Core', 'Source'));
+      echo "<img src='https://watzek.lclark.edu/seniorprojects".$x."'>";
+			   ?>
+			   
 			    </a>
    				<h3><?php echo link_to_items_browse(__(metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id'))); ?></h3>
 
