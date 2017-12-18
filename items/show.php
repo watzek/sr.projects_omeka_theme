@@ -8,31 +8,62 @@
 
 $collection = get_collection_for_item();
 
-if ($collection->id==27){ ?>
-  <div class="slider-nav">
+if ($collection->id==27){
 
-    <?php
-    set_loop_records('files', get_current_record('item')->Files);
-    foreach(loop('files') as $file){
-      echo file_image('square_thumbnail', array('class' => 'thumbnail'), $file);
-    }
-    ?>
-  </div><!-- closing div for slider-nav slider -->
-  <div class="featured-studio-art">
+        $isPublic= metadata($item, array('Item Type Metadata', 'Public'));
 
-    <?php
-    set_loop_records('files', get_current_record('item')->Files);
-    foreach(loop('files') as $file){
-      echo '<div class="studio-files">';
-        echo file_image('fullsize', array('class' => 'fullsize'), $file);
-        echo '<br />';
-        $file_metadata = getFileMetadata($file);
-        echo $file_metadata;
-      echo '</div>';
-    }
-    ?>
-    </div><!-- closing div for featured-studio-art slider -->
-    <hr />
+       // echo $isPublic;
+        if ($_SESSION["Zend_Auth"]["storage"]){
+            $auth=true;
+        }
+        else{$auth=false;}
+
+ 		if ($isPublic!="No" || ($isPublic=="No" && $auth==true)){
+ 		?>
+		  <div class="slider-nav">
+
+			<?php
+			set_loop_records('files', get_current_record('item')->Files);
+			foreach(loop('files') as $file){
+			  echo file_image('square_thumbnail', array('class' => 'thumbnail'), $file);
+			}
+			?>
+		  </div><!-- closing div for slider-nav slider -->
+		  <div class="featured-studio-art">
+
+			<?php
+			set_loop_records('files', get_current_record('item')->Files);
+			foreach(loop('files') as $file){
+			  echo '<div class="studio-files">';
+				echo file_image('fullsize', array('class' => 'fullsize'), $file);
+				echo '<br />';
+				$file_metadata = getFileMetadata($file);
+				echo $file_metadata;
+			  echo '</div>';
+			}
+			?>
+			</div><!-- closing div for featured-studio-art slider -->
+			<hr />
+
+
+
+
+ 		<?php
+
+
+ 		}
+         if ($isPublic=="No" && $auth==false){
+
+
+            echo "<p><a class='loginLink'>You must sign in to view this content</a>.</p>";
+        }
+
+
+
+
+
+?>
+
   <?php
 }
 else{
@@ -45,7 +76,7 @@ else{
         //var_dump($_SESSION);
 
         $isPublic= metadata($item, array('Item Type Metadata', 'IsPublic'));
-        
+
        // echo $isPublic;
         if ($_SESSION["Zend_Auth"]["storage"]){
             $auth=true;
@@ -136,6 +167,26 @@ else{
           <div style="clear: both;"></div>
         <?php  } ?>
 
+
+
+        <?php
+          $value = metadata('item', array('Item Type Metadata','Artist Statement'));
+          if ($value){
+        ?>
+          <p class="item-field">Artist Statement</p>
+          <p class="item-value" style='margin-left:250px;'><?php echo metadata('item', array('Item Type Metadata','Artist Statement')); ?></p>
+          <div style="clear: both;"></div>
+        <?php  } ?>
+
+        <?php
+          $value = metadata('item', array('Item Type Metadata','Abstract'));
+          if ($value){
+        ?>
+          <p class="item-field">Abstract</p>
+          <p class="item-value" style='margin-left:250px;'><?php echo metadata('item', array('Item Type Metadata','Abstract')); ?></p>
+          <div style="clear: both;"></div>
+        <?php  } ?>
+
         <?php
           $collection = get_collection_for_item();
           if ($collection){
@@ -148,6 +199,9 @@ else{
         <p class="item-field">Citation</p>
         <p class="item-value"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></p>
         <div style="clear: both;"></div>
+
+
+
 
     </div>
 
